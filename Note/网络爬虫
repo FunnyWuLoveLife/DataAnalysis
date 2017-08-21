@@ -1,0 +1,72 @@
+
+Xpath语法规则
+    表达式	描述
+        /	        从根节点选取。
+        nodename	选取此节点的所有子节点。
+        //	        从当前节点 选择 所有匹配文档中的节点
+        .	        选取当前节点。
+        ..	        选取当前节点的父节点。
+        @	        选取属性。
+    string(xpath语句) 
+                    取出xpath语句所对应的所以子级元素以及孙子级元素
+
+
+Python基础：
+
+        字符串：不可变序列，有序
+            strip()，去除字符串头尾的字符，参数默认为空格
+                eg: name = '000FunnyWu!00000'
+                 print name.strip('0')
+                 FunnyWu!
+            索引:'FunnyWu'[0] =>'F'
+                 'FunnyWu'[-2] =>'W'
+            切片:'FunnyWu'[0:1]=>'F'
+                 'FunnyWu'[:-2]=>'Funny'
+                 'FunnyWu'[::-1]=>'uWynnuF' #倒序
+            spilt():通过参数切割字符串，如果切割参数是字符串索引为0的字符那么返回的列表第一个元素是空值‘’
+            in:判断字符串是否存在与某个字符串中，返回值是布尔值
+                  'A' in 'ABC' =>True
+                  'AC' in 'ABC' => False
+            not in:判断字符串是否不存在与某个字符串中，返回值是布尔值
+                  'A' not in 'ABC' =>False
+                  'AC' not in 'ABC' => True
+        列表：可变序列，元素可重复，有序
+            列表生成器: [ a for a in range(10) ] => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                       [a + b for a in range(3) for b in range(10, 12)] => [10, 11, 11, 12, 12, 13]
+            insert(index,ob):在指定索引位置插入obj
+            index(obj):查找指定元素的索引
+            append(obj):在列表末尾添加obj
+            pop():删除列表末尾的元素，返回为原列表的末尾元素
+            pop(index):删除指定索引的元素，返回该元素
+            切片[start_index:end_index:step]:
+                start_index:开始索引，包含
+                end_index:介绍索引，不包含
+                step:间隔步骤，默认为1
+        字典:无序,key,value
+            key:不可变，唯一
+            value:可变，任意数据类型
+        
+
+        IO: w写模式，a追加模式,r读模式
+
+
+正则表达式:
+        ^:匹配字符串的开头 eg:^z匹配以z开头的字符串 
+        $:匹配字符串的末尾  eg:z$以z结尾的字符串 zx$以zx结尾的字符串
+        *:匹配前面的规则一次或多次
+
+        url地址:[a-zA-z]+://[^\s]*
+
+        Python中的正则:
+            re.match(pattern, string[, flags]) 从字符串首位开始匹配，失败返回None
+
+            re.search(pattern, string[, flags]) 从字符中任意位置开始匹配
+
+爬虫策略:
+    注意事项：
+            1.爬虫应该劲量的模拟人行为
+            2.爬虫请求应该添加请求头，模拟正常的浏览器请求头，在对方网站有反爬虫策略时可以在
+            可以使用UA库多次请求可携带不同UA
+            3.页面跳转的时候应该携带Referer为上一次请求的url
+            4.在对方网站采取封IP的策略时候可以使用IP池代理
+            

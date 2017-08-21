@@ -1,0 +1,51 @@
+
+MySQL数据库:
+
+
+    场景:
+        餐厅自动点餐系统
+            功能描述:
+                客户通过扫描餐桌二维码进入点餐系统，客人设置用餐人数（默认值为1）
+                系统中有以下几类商品：                                                                  
+                    1.炒菜
+                    2.小吃
+                    3.面食
+                    4.酒水
+                每种菜品属于以上几类商品
+                客户在浏览菜品图片后可选择菜品，选择菜品后可选择口味进行下单
+                厨师看到订单确认订单开始做菜，反馈客人做菜进度，如果订单超时可打8折
+                客人吃完饭后可对每种菜品进行评价
+    
+    数据库外键级联策略:
+        restrict
+        cascade
+        set null
+        no action
+
+    insert into table_name(col_name[,...]) values(...) on duplicate key update col_name = XXX
+    上面这句语句会自动判断是否有该行记录，不存在新增，如果存在只修改指定字段
+
+    抽签随机算法
+    
+
+    MySQL企业应用
+        阶段一      Idea:需求调查
+        阶段二      难度调查
+        产品原型    简单的原型    
+        产品架构
+        数据库设计
+
+MongoDB高级
+    正则表达式:
+        { <field>: { $regex: /pattern/, $options: '<options>' } }
+        { <field>: { $regex: 'pattern', $options: '<options>' } }
+        { <field>: { $regex: /pattern/<options> } }
+        $options:
+            i:大小写不敏感，匹配大小写
+            m:对于包含锚的模式(例如开始，$为结束)，在每一行的开始或结束时匹配多行值的字符串。
+                如果没有这个选项，这些锚将在字符串的开始或结束处匹配。在有^和$时候才有效。
+                如果该模式不包含锚，或者字符串值没有换行符(例如/n)，那么m选项就没有效果。
+            x:“扩展”功能可以忽略$regex模式中的所有空格字符，除非转义或包含在字符类中。
+            s:允许点字符(例如.)来匹配所有字符包括换行字符。
+    
+    mapreduce的时候sort内存超过限制:db.adminCommand({"setParameter":1,"internalQueryExecMaxBlockingSortBytes":268435456})

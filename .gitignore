@@ -1,0 +1,7 @@
+# Spider
+.idea/
+*.pyc
+.vscode/
+*利用Python进行数据分析Code/
+*.json
+*.ipynb_checkpoints/

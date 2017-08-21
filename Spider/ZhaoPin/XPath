@@ -1,0 +1,23 @@
+            列表:         //*[@id='newlist_list_content_table']/table
+
+
+            u'区域':        
+            u'详情页':      string(tbody/tr[1]/td[@class='zwmc']/div/a/@href)
+            u'公司名字':    string(tbody/tr[1]/td[@class='gsmc'])
+            u'岗位名字':    string(tbody/tr[1]/td[@class='zwmc'])
+            u'薪资':        string(tbody/tr[1]/td[@class='zwyx'])
+            u'更新时间':    string(tbody/tr[1]/td[@class='gxsj'])
+             u'工作地点':      string(tbody/tr[1]/td[@class='gzdd'])
+            u'职位':          
+            u'经验':          
+            u'招聘人数': 
+            u'学历': 
+            u'福利': 
+            u'电话': 
+            u'联系人': 
+            u'公司规模': 
+            u'公司性质': 
+            u'公司行业': 
+            u'公司地址': 
+            u'公司简介': 
+            u'职位简介': 
