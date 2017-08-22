@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-# @file: NaiveBayes.py
+# @file: NaiveBayesStructuredData.py
 # @time: 2017/8/21 9:02
 # @author: FunnyWu
 # @license: Apache Licence 
