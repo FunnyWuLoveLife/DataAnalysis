@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../lib/echart/echarts.js"></script>
+    <script src="../lib/jquery.min.js.js"></script>
+    <script src="../mean.js"></script>
+</head>
+<body>
+<div id="main" style="width: 900px;height:600px;"></div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 模拟数据
+
+    var colors = ['#5793f3', '#d14a61', '#675bba'];
+    
+    option = {
+        color: colors,
+    
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        grid: {
+            right: '20%'
+        },
+        toolbox: {
+            feature: {
+                dataView: {show: true, readOnly: false},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        legend: {
+            data:Object.keys(data)
+        },
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: {
+                    alignWithLabel: true
+                },
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45,
+                },
+                data: data["品牌"]
+            }
+        ],
+        yAxis: [
+        
+            {
+                type: 'value',
+                name: '时效',
+                min: 0,
+                max: 200,
+                position: 'left',
+                axisLine: {
+                    lineStyle: {
+                        color: colors[2]
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value} '
+                }
+            },
+            {
+                type: 'value',
+                name: '轻货价格',
+                min: 0,
+                max: 12,
+                position: 'right',
+                axisLine: {
+                    lineStyle: {
+                        color: colors[0]
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value} '
+                }
+            },
+            {
+                type: 'value',
+                name: '重货价格',
+                min: 0,
+                max: 700,
+                position: 'right',
+                offset: 80,
+                axisLine: {
+                    lineStyle: {
+                        color: colors[1]
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value} '
+                }
+            }
+        ],
+        series: [
+             {
+                name:'时效',
+                type:'line',
+                data:data["时效"]
+            },
+            {
+                name:'轻货价格',
+                type:'bar',
+                yAxisIndex: 1,
+                data:data["轻货价格"]
+            },
+            {
+                name:'重货价格',
+                type:'bar',
+                yAxisIndex: 2,
+                data:data["重货价格"]
+            }            
+        ]
+    };
+    myChart.setOption(option);
+
+</script>
+</html>

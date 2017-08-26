@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../lib/echart/echarts.js"></script>
+    <script src="../lib/jquery.min.js.js"></script>
+</head>
+<body>
+<div id="main" style="width: 900px;height:600px;"></div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 模拟数据
+
+    var sourceData = [
+        {
+            "name": "COSCO-AIR",
+            "value": 2
+        },
+        {
+            "name": "中通快运",
+            "value": 151
+        },
+        {
+            "name": "中铁物流",
+            "value": 118
+        },
+        {
+            "name": "传邦物流",
+            "value": 40
+        },
+        {
+            "name": "佳吉快运",
+            "value": 141
+        },
+        {
+            "name": "佳怡物流",
+            "value": 37
+        },
+        {
+            "name": "兴铁物流",
+            "value": 13
+        },
+        {
+            "name": "卡行天下",
+            "value": 28
+        },
+        {
+            "name": "天地华宇",
+            "value": 191
+        },
+        {
+            "name": "安能物流",
+            "value": 183
+        },
+        {
+            "name": "德邦",
+            "value": 190
+        },
+        {
+            "name": "恒路物流",
+            "value": 12
+        },
+        {
+            "name": "新邦物流",
+            "value": 84
+        },
+        {
+            "name": "昊昕物流",
+            "value": 8
+        },
+        {
+            "name": "百世物流",
+            "value": 115
+        },
+        {
+            "name": "盛辉物流",
+            "value": 40
+        },
+        {
+            "name": "科捷物流",
+            "value": 1
+        },
+        {
+            "name": "路易通物流",
+            "value": 12
+        },
+        {
+            "name": "远成快运",
+            "value": 173
+        },
+        {
+            "name": "铭龙物流",
+            "value": 12
+        }];
+
+    function getKeys(sourceData) {
+        var temp = [];
+        for (var idx  in sourceData) {
+            temp.push(sourceData[idx].name)
+        }
+        return temp
+    }
+
+    var data = {
+        "legendData": getKeys(sourceData),
+        "seriesData": sourceData
+    };
+
+    option = {
+        title: {
+            text: '出发城数量比',
+            x: 'center'
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            type: 'scroll',
+            orient: 'vertical',
+            right: 10,
+            top: 20,
+            bottom: 20,
+            data: data.legendData
+        },
+        series: [
+            {
+                type: 'pie',
+                radius: '55%',
+                center: ['40%', '50%'],
+                data: data.seriesData,
+                label: {
+                    normal:{
+                        formatter: '{b}:{d}%'
+                    }
+                },
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+
+</script>
+</html>

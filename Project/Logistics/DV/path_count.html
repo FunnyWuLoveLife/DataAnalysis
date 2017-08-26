@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../lib/echart/echarts.js"></script>
+    <script src="../lib/jquery.min.js.js"></script>
+</head>
+<body>
+<div id="main" style="width: 900px;height:600px;"></div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 模拟数据
+
+    var sourceData = {
+        "线路数量": {
+            "中通快运": 57603,
+            "中铁物流": 120579,
+            "传邦物流": 22404,
+            "佳吉快运": 105508,
+            "佳怡物流": 42245,
+            "兴铁物流": 3752,
+            "卡行天下": 19409,
+            "天地华宇": 183474,
+            "安能物流": 322279,
+            "德邦": 611742,
+            "恒路物流": 9682,
+            "新邦物流": 147838,
+            "昊昕物流": 955,
+            "百世物流": 136847,
+            "盛辉物流": 16505,
+            "科捷物流": 6,
+            "路易通物流": 1072,
+            "远成快运": 156792,
+            "铭龙物流": 31896
+        },
+        "网点数量": {
+            "中通快运": 1602,
+            "中铁物流": 5924,
+            "传邦物流": 5,
+            "佳吉快运": 3054,
+            "佳怡物流": 819,
+            "兴铁物流": 163,
+            "卡行天下": 1607,
+            "天地华宇": 4773,
+            "安能物流": 32382,
+            "德邦": 29557,
+            "恒路物流": 666,
+            "新邦物流": 2115,
+            "昊昕物流": 544,
+            "百世物流": 9805,
+            "盛辉物流": 952,
+            "科捷物流": 8,
+            "路易通物流": 269,
+            "远成快运": 5864,
+            "铭龙物流": 1343
+        }
+    };
+
+    option = {
+        title: {},
+        color: ['#3398DB'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: Object.keys(sourceData["线路数量"]),
+                axisLabel: {
+                    interval: 0,
+                    rotate: 45,
+                    color: "#F5C51D"
+                },
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis: [
+            {
+                name: "线路数量",
+                type: 'value',
+                axisLabel: {
+                    color: "#F5C51D"
+                }
+            },
+            {
+                name: "网点数量",
+                type: 'value',
+                axisLabel: {
+                    color: "#A8A8A8"
+                }
+            }
+        ],
+        series: [
+            {
+                name: '线路数量',
+                type: 'bar',
+                barWidth: '60%',
+                itemStyle: {
+                    normal: {
+                        color: "#F5C51D"
+                    }
+                },
+                data: Object.values(sourceData["线路数量"])
+            },
+            {
+                name: '网点数量',
+                type: 'line',
+                yAxisIndex: 1,
+                lineStyle: {
+                    normal: {
+                        color: "#A8A8A8"
+                    }
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        color: "#A8A8A8"
+                    }
+                },
+                data: Object.values(sourceData["网点数量"])
+            }
+        ]
+    }
+    ;
+    myChart.setOption(option);
+
+</script>
+</html>

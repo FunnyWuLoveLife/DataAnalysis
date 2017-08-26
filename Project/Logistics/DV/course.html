@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../lib/echart/echarts.js"></script>
+    <script src="../lib/echart/extension/dataTool.js"></script>
+    <script src="../lib/jquery.min.js.js"></script>
+    <script src="./course.js"></script>
+</head>
+<body>
+<div id="main" style="width: 800px;height:600px;"></div>
+</body>
+<script src="dcCourse.js"></script>
+<script>
+    //    var myChart = echarts.init(document.getElementById('main'));
+    //    myChart.showLoading();
+    //    myChart.setOption(option);
+    var courseData = convertData(data);
+    getGeoCoord(getCityList(data));
+
+</script>
+</html>
+

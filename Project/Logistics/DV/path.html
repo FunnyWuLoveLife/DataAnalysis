@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="../lib/echart/echarts.js"></script>
+    <script src="../lib/jquery.min.js.js"></script>
+    <script src="./data.js"></script>
+    <script src="../lib/echart/extension/bmap.js"></script>
+    <script src="../lib/echart/extension/dataTool.js"></script>
+    <script src="./china.js"></script>
+    <script src="world.js"></script>
+</head>
+<body>
+<div id="main" style="width: 900px;height:750px;"></div>
+</body>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    // 模拟数据
+
+            myChart.hideLoading();
+        
+            // function getAirportCoord(idx) {
+            //     return [data.airports[idx][3], data.airports[idx][4]];
+            // }
+            // var routes = data.routes.map(function (airline) {
+            //     return [
+            //         getAirportCoord(airline[1]),
+            //         getAirportCoord(airline[2])
+            //     ];
+            // });
+        
+            myChart.setOption(option = {
+                title: {
+                    text: '中国品牌物流线路分布',
+                    left: 'center',
+                    textStyle: {
+                        color: '#eee'
+                    }
+                },
+                backgroundColor: '#003',
+                tooltip: {
+                    formatter: function (param) {
+
+                        // console.log(data.course[param.dataIndex][0] + ' > ' + data.course[param.dataIndex][1])
+                        // // var route = ;
+                        return data.course[param.dataIndex][0] + ' > ' + data.course[param.dataIndex][1] ;
+                    }
+                },
+                toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+                geo: {
+                    map: 'china',
+                    left: 0,
+                    right: 0,
+                    silent: true,
+                    itemStyle: {
+                        normal: {
+                            borderColor: '#003',
+                            color: '#005'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'lines',
+                    coordinateSystem: 'geo',
+                    data: data["routes"],
+                    large: true,
+                    largeThreshold: 100,
+                    lineStyle: {
+                        normal: {
+                            opacity: 0.05,
+                            width: 0.5,
+                            curveness: 0.3
+                        }
+                    },
+                    // 设置混合模式为叠加
+                    blendMode: 'lighter'
+                }]
+            });
+</script>
+</html>
