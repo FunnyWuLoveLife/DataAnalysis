@@ -6,3 +6,4 @@
 *.json
 *.ipynb_checkpoints/
 *DataSet/
+*dataset/

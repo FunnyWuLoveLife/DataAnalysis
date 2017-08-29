@@ -10,6 +10,14 @@
 import math
 
 
+class Node:
+    value = ""
+    children = []
+
+    def __init__(self):
+        pass
+
+
 class DecisionTree:
     """决策树相关类"""
 
@@ -17,12 +25,14 @@ class DecisionTree:
         """初始化类"""
         pass
 
-    def create_tree(self, data, lable_data, feature):
+    def create_tree(self, data, attributes, feature):
         """生成决策树"""
+
         pass
 
     def find_maximum_gain_attribute(self):
         """寻找信息增益最大的20个属性"""
+        pass
 
     def entropy(self, attributes, data, targetAttr):
         """计算信息熵"""
@@ -35,7 +45,6 @@ class DecisionTree:
 
         for freq in val_freq.values():
             data_entropy += (-freq / len(data)) * math.log(freq / len(data), 2)  # 根据公式计算信息熵
-
         return data_entropy
 
     def gain(self):
@@ -44,6 +53,5 @@ class DecisionTree:
 
 
 if __name__ == '__main__':
-
-
+    open("../DataSet/character/clean_data_has_label.csv")
     pass
