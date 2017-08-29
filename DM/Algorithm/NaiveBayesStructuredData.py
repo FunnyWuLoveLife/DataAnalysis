@@ -56,8 +56,6 @@ class Classifier:
                     vector.append(float(fields[i]))
                 elif self.format[i] == 'attr':
                     vector.append(fields[i])
-                elif self.format[i] == 'comment':
-                    ignore.append(fields[i])
                 elif self.format[i] == 'class':
                     category = fields[i]
 
@@ -103,12 +101,10 @@ class Classifier:
                 col += 1
             results.append((prob, category))
         # 返回概率最高的结果
-        return max(results)[1]
+        return max(results)
 
 
 if __name__ == '__main__':
     c = Classifier("attr\tattr\tattr\tattr\tclass")
-
     c.train("../DataSet/NaiveBayesTestData")
-
-    print(c.classify(['health' 'moderate', 'moderate', 'yes']))
+    print(c.classify(['health', 'moderate', 'moderate', 'yes']))
