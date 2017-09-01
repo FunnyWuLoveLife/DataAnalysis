@@ -8,6 +8,7 @@
 # @contact: agiot1026@163.com
 # @Software: PyCharm
 import math
+from DM.ClassExercises import Preprocessing
 
 
 class Node:
@@ -53,5 +54,5 @@ class DecisionTree:
 
 
 if __name__ == '__main__':
-    open("../DataSet/character/clean_data_has_label.csv")
+    attributes, data = Preprocessing.get_train_data()
     pass
