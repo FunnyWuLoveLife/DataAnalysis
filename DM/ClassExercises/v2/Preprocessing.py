@@ -12,7 +12,7 @@ from sklearn.preprocessing import Imputer, OneHotEncoder
 from sklearn.preprocessing import StandardScaler
 
 
-def fit(self, typeList, X, imp4Num=None, imp4Cat=None, scaler=False, enc=False):
+def fit(typeList, X, imp4Num=None, imp4Cat=None, scaler=False, enc=False):
     """对数据进行预处理
     :param typeList: list 特征类型列表
     :param X: m*n list 数据
@@ -65,12 +65,12 @@ def fit(self, typeList, X, imp4Num=None, imp4Cat=None, scaler=False, enc=False):
     return newFeatMat, typeList
 
 
-def pca(self, k, dataX):
+def pca(k, dataX):
     """PCA降维
         设有m条n维的原始数据矩阵dataX。
         1.将原始数据按列组成n行m列矩阵X
         2.将X的每一行（代表一个属性字段）进行零均值化，即减去这一行的均值
-        3.求出协方差矩阵 C = 1/m * dataX * dataXT
+        3.求出协方差矩阵 C = 1/m * X * X.T
         4.求出协方差矩阵的特征值及对应的特征向量
         5.将特征向量按对应特征值大小从上到下按行排列成矩阵，取前k行组成矩阵P
         6.Y=PX即为降维到k维后的数据

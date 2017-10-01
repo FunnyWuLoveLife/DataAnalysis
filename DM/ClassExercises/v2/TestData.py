@@ -11,6 +11,7 @@ from DM.ClassExercises.v2.LoadData import *
 from DM.ClassExercises.v2 import Preprocessing
 from DM.ClassExercises.v2.Bayes import Bayes
 from DM.ClassExercises.v2 import LinearRegression
+from DM.ClassExercises.v2.Kmeans import KMeansClassifier
 
 
 def testBayes():
@@ -46,16 +47,20 @@ def testLinearRegression():
     pass
 
 
-def testPCA():
+def testKMeans():
     featType = loadFeatType("../../DataSet/character/features_type.csv")
     typeList, uids, X = loadTranX("../../DataSet/character/train_x.csv", featType)
     dataY = loadTrainY("../../DataSet/character/train_y.csv", uids)
     dataX, typeList = Preprocessing.fit(typeList=typeList, X=X, scaler=True)
     k = 300  # 保留的特征维度
     dataX = Preprocessing.pca(k, dataX)
+    km = KMeansClassifier()
+    km.fit(dataX)
+    x = km._labels[km._labels == 0]
+    pass
 
 
 if __name__ == '__main__':
-    # testLinearRegression()
-    testPCA()
+    testLinearRegression()
+    # testKMeans()
     pass
